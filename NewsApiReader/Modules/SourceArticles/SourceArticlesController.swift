@@ -55,11 +55,11 @@ extension SourceArticlesController: UITableViewDataSource {
 }
 
 // MARK: - UITableViewDelegate
-//extension SourceArticlesController: UITableViewDelegate {
-//
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        tableView.deselectRow(at: indexPath, animated: true)
-//
-//
-//    }
-//}
+extension SourceArticlesController: UITableViewDelegate {
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+
+        presenter.didSelectRowAt(indexPath: indexPath)
+    }
+}

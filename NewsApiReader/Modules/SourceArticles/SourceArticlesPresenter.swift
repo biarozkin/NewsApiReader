@@ -10,6 +10,8 @@ import Foundation
 protocol ISourceArticlesPresenter: ViewLifecycleSupportable,
                                    RowsCountSupportable,
                                    RowSelectable {
+    var onArticleSelected: ((ArticleViewModel) -> Void)? { get set }
+    
     func configure(view: ArticleDetailsCellType, at path: IndexPath)
 }
 
@@ -64,7 +66,8 @@ extension SourceArticlesPresenter: ISourceArticlesPresenter {
     }
     
     func didSelectRowAt(indexPath: IndexPath) {
-        onArticleSelected?(viewModels[indexPath.row])
+        let selectedArticle = viewModels[indexPath.row]
+        onArticleSelected?(selectedArticle)
     }
     
     func configure(view: ArticleDetailsCellType, at path: IndexPath) {
