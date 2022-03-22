@@ -12,6 +12,7 @@ import Foundation
 
 protocol IRequestsNetworkService {
     func getSources(completion: @escaping ([NewsSource]) -> Void)
+    func getNewsBySource(_ sourceID: String, completion: @escaping ([Article]) -> Void)
 }
 
 final class RequestsNetworkService {
@@ -27,7 +28,8 @@ final class RequestsNetworkService {
 extension RequestsNetworkService: IRequestsNetworkService {
     
     func getSources(completion: @escaping ([NewsSource]) -> Void) {
-        networkService.sendRequest(endPoint: .allSources) { (result) in
+        let endPoint = RequestsEndpoint.getAllSources
+        networkService.sendRequest(endPoint: endPoint) { result in
             switch result {
             case .value(let data, _):
                 guard let json = try? JSONSerialization.jsonObject(with: data, options: []) as? [String: Any],
@@ -45,9 +47,23 @@ extension RequestsNetworkService: IRequestsNetworkService {
         }
     }
     
-    func getNewsBySource(_ source: NewsSource, completion: @escaping () -> Void) {
-        networkService.sendRequest(endPoint: .bySource) { (result) in
-            
+    func getNewsBySource(_ sourceID: String, completion: @escaping ([Article]) -> Void) {
+        let endPoint = RequestsEndpoint.getArticlesBySource(sourceID: sourceID)
+        networkService.sendRequest(endPoint: endPoint) { result in
+            switch result {
+            case .value(let data, _):
+                guard let json = try? JSONSerialization.jsonObject(with: data, options: []) as? [String: Any],
+                      let sources = json["articles"],
+                      let sourcesData = try? JSONSerialization.data(withJSONObject: sources, options: .prettyPrinted),
+                      let objects = try? JSONDecoder().decode([Article].self, from: sourcesData) else {
+                    return completion([])
+                }
+                
+                return completion(objects)
+            case .failure(let error):
+                // FIXME: - Add error handling.
+                print(error)
+            }
         }
     }
 }
