@@ -11,7 +11,7 @@ protocol NewsSourceCellType {
     func set(name: String, description: String)
 }
  
-class NewsSourceCell: UITableViewCell, TableViewNibCell {
+final class NewsSourceCell: UITableViewCell, TableViewNibCell {
     
     // MARK: - Outlets
     @IBOutlet weak var nameLabel: UILabel!
