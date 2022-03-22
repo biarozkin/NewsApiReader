@@ -19,6 +19,12 @@ final class ArticleDetailsCell: UITableViewCell, TableViewNibCell {
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        
+        articleImageView.image = nil
+    }
 }
 
 // MARK: - NewsSourceCellType
