@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="NewsSourceCell" rowHeight="88" id="xmB-k7-Hdf" customClass="NewsSourceCell" customModule="NewsApiReader" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="88"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="xmB-k7-Hdf" id="ZcW-dY-zZb">
+                <rect key="frame" x="0.0" y="0.0" width="414" height="88"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vba-uk-Z5S">
+                        <rect key="frame" x="12" y="12" width="390" height="23"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="23" id="f0z-zI-pdl"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8xg-80-BoP">
+                        <rect key="frame" x="12" y="43" width="390" height="20.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="8xg-80-BoP" firstAttribute="trailing" secondItem="vba-uk-Z5S" secondAttribute="trailing" id="8bZ-GS-KAT"/>
+                    <constraint firstItem="vba-uk-Z5S" firstAttribute="leading" secondItem="ZcW-dY-zZb" secondAttribute="leading" constant="12" id="PrO-wR-0cW"/>
+                    <constraint firstItem="8xg-80-BoP" firstAttribute="leading" secondItem="vba-uk-Z5S" secondAttribute="leading" id="e89-Wp-BzU"/>
+                    <constraint firstAttribute="trailing" secondItem="vba-uk-Z5S" secondAttribute="trailing" constant="12" id="hsI-Jg-Yzk"/>
+                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="8xg-80-BoP" secondAttribute="bottom" constant="12" id="iuD-MX-XVM"/>
+                    <constraint firstItem="vba-uk-Z5S" firstAttribute="top" secondItem="ZcW-dY-zZb" secondAttribute="top" constant="12" id="lDC-69-pah"/>
+                    <constraint firstItem="8xg-80-BoP" firstAttribute="top" secondItem="vba-uk-Z5S" secondAttribute="bottom" constant="8" id="lkA-Yi-rgN"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="descriptionLabel" destination="8xg-80-BoP" id="Op8-qV-tuB"/>
+                <outlet property="nameLabel" destination="vba-uk-Z5S" id="6Tj-FK-CGr"/>
+            </connections>
+            <point key="canvasLocation" x="102.89855072463769" y="62.276785714285708"/>
+        </tableViewCell>
+    </objects>
+</document>
