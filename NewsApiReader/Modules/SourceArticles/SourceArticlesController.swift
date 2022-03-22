@@ -23,6 +23,7 @@ final class SourceArticlesController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        prepareUI()
         presenter.viewDidLoad?()
     }
 }
@@ -61,5 +62,13 @@ extension SourceArticlesController: UITableViewDelegate {
         tableView.deselectRow(at: indexPath, animated: true)
 
         presenter.didSelectRowAt(indexPath: indexPath)
+    }
+}
+
+// MARK: - Private methods
+private extension SourceArticlesController {
+    
+    func prepareUI() {
+        tableView.tableFooterView = UIView()
     }
 }

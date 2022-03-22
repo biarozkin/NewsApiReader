@@ -66,6 +66,7 @@ private extension NewsSourcesController {
     func prepareUI() {
         // TODO: - Add localization support
         title = "News sources"
+        tableView.tableFooterView = UIView()
     }
 }
 
