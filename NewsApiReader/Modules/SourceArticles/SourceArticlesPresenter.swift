@@ -19,15 +19,18 @@ final class ArticleViewModel {
     let title: String
     let description: String
     let articleDate: String     // TODO: - Convert to Date with DateFormat
+    let articleUrl: URL?
     let imageUrl: URL?
     
     required init(title: String,
                   description: String,
                   articleDate: String,
+                  articleUrl: URL?,
                   imageUrl: URL?) {
         self.title = title
         self.description = description
         self.articleDate = articleDate
+        self.articleUrl = articleUrl
         self.imageUrl = imageUrl
     }
 }
@@ -88,6 +91,7 @@ private extension SourceArticlesPresenter {
             self.viewModels = articles.map { ArticleViewModel(title: $0.title,
                                                               description: $0.description,
                                                               articleDate: $0.publishedAt,
+                                                              articleUrl: URL(string: $0.url),
                                                               imageUrl: $0.urlToImage == "null" ? nil : URL(string: $0.urlToImage!)) } // FYI. BackEnd returns "null" string instead of nil for no image
             // FIXME: - Add pagination logic
             self.view?.reload()

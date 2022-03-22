@@ -107,18 +107,29 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="link" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Pd0-iL-Ths">
+                                <rect key="frame" x="12" y="382" width="378" height="464"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <dataDetectorType key="dataDetectorTypes" link="YES"/>
+                            </textView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="L5n-q0-h38"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="5df-gg-zQX" firstAttribute="leading" secondItem="L5n-q0-h38" secondAttribute="leading" id="38C-uh-pCv"/>
+                            <constraint firstItem="Pd0-iL-Ths" firstAttribute="top" secondItem="VmH-vU-r5g" secondAttribute="bottom" constant="8" id="3CF-wS-ffk"/>
                             <constraint firstItem="VmH-vU-r5g" firstAttribute="trailing" secondItem="wnc-xo-csI" secondAttribute="trailing" id="CaE-MA-bOn"/>
                             <constraint firstItem="2jO-F4-Xc9" firstAttribute="trailing" secondItem="wnc-xo-csI" secondAttribute="trailing" id="D6U-Y0-12Y"/>
                             <constraint firstItem="L5n-q0-h38" firstAttribute="trailing" secondItem="5df-gg-zQX" secondAttribute="trailing" id="Kgo-vR-kTW"/>
-                            <constraint firstItem="L5n-q0-h38" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="VmH-vU-r5g" secondAttribute="bottom" constant="16" id="XvL-ou-NjU"/>
+                            <constraint firstItem="L5n-q0-h38" firstAttribute="bottom" secondItem="Pd0-iL-Ths" secondAttribute="bottom" constant="16" id="MeX-PT-17c"/>
                             <constraint firstItem="L5n-q0-h38" firstAttribute="trailing" secondItem="wnc-xo-csI" secondAttribute="trailing" constant="24" id="cxq-2G-hnI"/>
                             <constraint firstItem="5df-gg-zQX" firstAttribute="top" secondItem="L5n-q0-h38" secondAttribute="top" id="epQ-vb-4Hw"/>
+                            <constraint firstItem="Pd0-iL-Ths" firstAttribute="leading" secondItem="wnc-xo-csI" secondAttribute="leading" constant="-4" id="kZn-2p-AZO"/>
                             <constraint firstItem="VmH-vU-r5g" firstAttribute="top" secondItem="2jO-F4-Xc9" secondAttribute="bottom" constant="8" id="kbX-dy-bHe"/>
+                            <constraint firstItem="Pd0-iL-Ths" firstAttribute="trailing" secondItem="wnc-xo-csI" secondAttribute="trailing" id="mKw-Ys-fLy"/>
                             <constraint firstItem="2jO-F4-Xc9" firstAttribute="leading" secondItem="wnc-xo-csI" secondAttribute="leading" id="sHz-B9-dNf"/>
                             <constraint firstItem="wnc-xo-csI" firstAttribute="leading" secondItem="L5n-q0-h38" secondAttribute="leading" constant="16" id="tvG-g2-vCa"/>
                             <constraint firstItem="VmH-vU-r5g" firstAttribute="leading" secondItem="wnc-xo-csI" secondAttribute="leading" id="wF8-at-KpH"/>
@@ -130,6 +141,7 @@
                         <outlet property="articleImageView" destination="5df-gg-zQX" id="LVW-Qa-1NJ"/>
                         <outlet property="dateLabel" destination="2jO-F4-Xc9" id="62M-vY-zdf"/>
                         <outlet property="descriptionLabel" destination="VmH-vU-r5g" id="Or7-db-cgX"/>
+                        <outlet property="linkTextView" destination="Pd0-iL-Ths" id="AIv-9Q-xnt"/>
                         <outlet property="titleLabel" destination="wnc-xo-csI" id="7QJ-IP-gPq"/>
                     </connections>
                 </viewController>
@@ -139,6 +151,9 @@
         </scene>
     </scenes>
     <resources>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
