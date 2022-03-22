@@ -9,7 +9,7 @@ import UIKit
 
 protocol ArticleDetailsCellType {
     func set(articleViewModel: ArticleViewModel)
-    func set(title: String, description: String, date: String, imageUrl: String)
+    func set(title: String, description: String, date: String, imageUrl: URL?)
 }
  
 final class ArticleDetailsCell: UITableViewCell, TableViewNibCell {
@@ -31,10 +31,13 @@ extension ArticleDetailsCell: ArticleDetailsCellType {
             imageUrl: articleViewModel.imageUrl)
     }
     
-    func set(title: String, description: String, date: String, imageUrl: String) {
+    func set(title: String, description: String, date: String, imageUrl: URL?) {
         titleLabel.text = title
         descriptionLabel.text = description
         dateLabel.text = date
-//        articleImageView.image = image
+        
+        if let imageUrl = imageUrl {
+            articleImageView.setImageWith(URL: imageUrl)
+        }
     }
 }
